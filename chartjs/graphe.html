@@ -15,5 +15,63 @@
     <div class="canvas">
         <canvas id="myChart"></canvas>
     </div>
+
+<!--
+https://www.youtube.com/watch?v=qQF7bNkamiY    
+    
+<?php
+    // connexion à la BDD 
+    $con = mysqli_connect("localhost", "root", "", "month")
+    // vérification de la connexion
+    if(!$con){
+        echo "connexion échouée !";
+    }
+    // requête pour afficher les mois et les nombres
+    $req = mysqli_query($con, "SELECT ... FROM ...")
+
+    // boucle pour mettre les données dans 2 tableaux
+    foreach ($req as $data){
+        $months = $data['name'];
+        $number = $data['number'];
+    }
+    var_dump($number);
+    var_dump($months);
+?>
+
+<script>
+    const labels = <?php echo_json_encode($months) ?>;
+
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: 'My First dataset',
+            backgroundColor: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange', 'white'],
+            borderColor: ['teal'],
+            data: <?php echo_json_encode($number) ?>,
+        }]  
+    };
+
+    const config = {
+        type: 'line',
+        data: data,
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    };
+
+</script>
+
+<script>
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
+</script>
+
+-->
 </body>
 </html>
