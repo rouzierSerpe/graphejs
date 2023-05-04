@@ -1,0 +1,167 @@
+@import url("https://fonts.googleapis.com/css2?family=Poller+One&display=swap");
+
+/* Custom Properties */
+:root {
+  --white: #e0e0e0;
+  --black: #111111;
+  --chosen: transparent;
+  --chosen-alt: transparent;
+}
+
+/* Resets */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Main body */
+body {
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+body.light {
+  --chosen: var(--white);
+  --chosen-alt: var(--black);
+}
+body.dark {
+  --chosen: var(--black);
+  --chosen-alt: var(--white);
+}
+
+/* Sides */
+.side {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  transition: transform 0.5s ease;
+}
+.light-side {
+  background-color: var(--white);
+  color: var(--white);
+  -webkit-text-stroke: 4px var(--black);
+  align-items: flex-end;
+  transform: translatex(-50vw);
+}
+.dark-side {
+  background-color: var(--black);
+  color: var(--black);
+  -webkit-text-stroke: 4px var(--white);
+  align-items: flex-start;
+  transform: translatex(50vw);
+}
+.choose {
+  font-family: "Poller One", sans-serif;
+  font-size: 5rem;
+  transition: opacity 0.3s ease;
+}
+.light-side .choose {
+  transform: translate(48%, -2rem);
+}
+.dark-side .choose {
+  transform: translate(-52%, -2rem);
+}
+
+body.dark .choose,
+body.light .choose {
+  opacity: 0;
+}
+
+/* Buttons */
+button {
+  background: none;
+  border: none;
+  outline: none;
+}
+.fa-solid {
+  font-size: 15rem;
+  cursor: pointer;
+}
+.fa-anchor {
+  color: darkred;
+  transform: translatex(-50%);
+}
+.fa-star {
+  color: goldenrod;
+  transform: translatex(50%);
+}
+
+body.light .light-side {
+  transform: translatex(0);
+}
+body.light .dark-side {
+  transform: translatex(100vw);
+}
+
+body.dark .light-side {
+  transform: translatex(-100vw);
+}
+body.dark .dark-side {
+  transform: translatex(0);
+}
+
+
+/* Images */
+.image {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 80vw;
+  opacity: 0;
+  transition: transform 0.5s ease-in-out, opacity 1s ease-in-out;
+}
+.image img {
+  transform: scalex(-1);
+  max-width: 100%;
+  filter: sepia(50%);
+}
+.image p {
+  font-family: "Poller One", sans-serif;
+  font-size: 4rem;
+  color: var(--chosen);
+  -webkit-text-stroke: 4px var(--chosen-alt);
+  transition: 0.6s ease;
+}
+
+.luke {
+  left: 0;
+  transform: translatex(-100vw);
+}
+.vader {
+  right: 0;
+  transform: translatex(100vw);
+}
+
+body.light .luke,
+body.dark .vader {
+  transform: translatex(0);
+  opacity: 1;
+}
+
+.image-fade {
+  position: relative;
+  display: inline-block;
+  color: var(--chosen);
+  transition: color 1s ease;
+}
+.image-fade::after {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  border-collapse: separate;
+  box-shadow: inset 80px 0 80px -28px, inset -80px 0 80px -28px;
+}
