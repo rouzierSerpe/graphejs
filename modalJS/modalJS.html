@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ModalJS</title>
     <script src="modalJS.js" defer></script>
     <link rel="stylesheet" href="modalJS.css">
 </head>
 <body>
+    <!-- MODAL COURS OCR -->
     <button class="btn-signup modal-btn">Je découvre</button>
     
     <div class="bground">
@@ -35,5 +36,36 @@
         </div>
     </div>
 
+
+
+    <button onclick="confirmer()">Supprimer</button>
+    <!-- MODAL DE SUPPRESSION LIGNE-->
+    <button class=" btn-signup suppressionModal">Suppression</button>
+
+    <table>
+      <thead>
+          <tr>
+              <th>Suppression</th>
+              <th colspan="2">The table header</th>
+              <th colspan="2">The second table header</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td><button id="delete" onclick="confirmer()">Supprimer</button></td>
+              <td>The table body</td>
+              <td>with two columns</td>
+              <td>The table body</td>
+              <td>with two columns</td>
+          </tr>
+          <tr>
+            <td><button id="delete" onclick="confirmer()">Supprimer</button></td>
+            <td>The table body</td>
+            <td>with two columns</td>
+            <td>The table body</td>
+            <td>with two columns</td>
+        </tr>
+      </tbody>
+    </table>
 </body>
 </html>

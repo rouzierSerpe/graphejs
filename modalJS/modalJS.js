@@ -1,3 +1,4 @@
+/* MODAL  */
 const modalBtn = document.querySelectorAll(".modal-btn");
 const modalbg = document.querySelector(".bground");
 const modalBtnClose = document.querySelectorAll(".close");
@@ -7,6 +8,7 @@ const btnCloseEnd = document.querySelectorAll(".btn-close");
 
 let btnSubmitValidationForm = document.querySelector("#button");
 let inputFirst = document.querySelector("#first");
+
 /**
  * launch modal form
  */
@@ -32,8 +34,6 @@ function closeModal() {
     const myBody = document.querySelector('body');
     myBody.classList.remove('isModalOpen');
 }
-
-
 
 /**
  * function to reset form
@@ -107,9 +107,6 @@ inputFirst.addEventListener('input', (event) => {
     checkInputsValidationName(firstName, 'firstNameError');
   })
 
-
-
-
 // TO OPEN OR CLOSE THE FORM
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -117,3 +114,23 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 // closing modal event
 modalBtnClose.forEach((btn) => btn.addEventListener("click", closeModal));
 btnCloseEnd.forEach((btn) => btn.addEventListener("click", closeModal));
+
+
+
+
+/* FENETRE POPUP SUPPRESSION */
+// https://waytolearnx.com/2019/10/afficher-un-message-de-confirmation-avant-suppression-en-javascript.html
+function confirmer(){
+  var res = confirm("Êtes-vous sûr de vouloir supprimer?");
+  if(res){
+      // Mettez ici la logique de suppression
+  }
+}
+
+function handleDelete(id) {
+    const result = window.confirm(`Voulez-vous vraiment supprimer la ligne ?`);
+    if(result) {
+      const allTodos = todos.filter(todo => todo.id !== id);
+      setTotos(allTodos);
+    }
+}

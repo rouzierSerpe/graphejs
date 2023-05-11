@@ -1,18 +1,16 @@
 .btn-signup {
     background: #fe142f;
-    display: block;
-    margin: 0 auto;
-    border-radius: 7px;
-    font-size: 1rem;
-    padding: 12px 82px;
+    /* display: block; */
+    display: flex;
+    border-radius: 1rem;
     color: #fff;
     cursor: pointer;
     border: 0;
     outline: none;
     text-transform: capitalize;
     font-size: 1.3rem;
-    padding: 15px 23px;
-    margin: 0;
+    padding: 0.75rem 2.5rem;
+    margin: auto;
     margin-top: 59px;
 }
 
@@ -25,19 +23,18 @@ margin: 0;
 margin-top: 59px;
 } */
 
-.modal-btn {
-    font-size: 145%;
-    background: #fe142f;
+/* .modal-btn {
+    font-size: 145%; 
     display: flex;
     margin: auto;
     padding: 2em;
     color: #fff;
-    padding: 0.75rem 2.5rem;
+    padding: 0.75rem 2.5rem; 
     border-radius: 1rem;
     cursor: pointer;
-}
+} */
 
-.modal-btn:hover {
+.btn-signup:hover {
     background: #3876ac;
 }
 
@@ -95,4 +92,21 @@ margin-top: 59px;
 .modal-body {
     padding: 15px 8%;
     margin: 15px auto;
+}
+
+
+
+
+table, td {
+    border: 1px solid #333;
+}
+
+table {
+    margin: auto;
+    margin-top: 30px;
+}
+
+thead, tfoot {
+    background-color: #333;
+    color: #fff;
 }

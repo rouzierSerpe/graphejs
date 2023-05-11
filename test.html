@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEST CODE</title>
+</head>
+<body>
+    <h1 id="gros_titre">Découverte du DOM HTML</h1>
+    <p class="para">Du texte et un lien</p>
+    <p class="para">Un deuxième paragraphe</p>
+
+    <script>
+        // https://www.youtube.com/watch?v=o7gVp33dLDE
+        let titre = document.getElementById('gros_titre');
+        let parent = document.body;
+
+        // parent.removeChild(titre);
+
+        let nouveauTitre = document.createElement('h2');
+        nouveauTitre.id = 'titre_moyen';
+        nouveauTitre.innerHTML = 'Titre modifié en JS';
+
+        parent.replaceChild(nouveauTitre, titre);
+    </script>
+</body>
+</html>
