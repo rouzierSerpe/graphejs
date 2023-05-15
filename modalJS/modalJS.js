@@ -143,7 +143,7 @@ function selectedRow() {
 
 
 function confirmer(){
-  var res = confirm("Êtes-vous sûr de vouloir supprimer?");
+  var res = confirm("Êtes-vous sûr de vouloir supprimer ?");
   
   if(res){
       // Mettez ici la logique de suppression
@@ -159,7 +159,10 @@ function handleDelete(id) {
     }
 }
 
-
+function deleteRow(r) {
+  let i = r.parentNode.parentNode.rowIndex;
+  document.getElementById("myTable").deleteRow(i);
+}
 
 
 // let rowIndex,tableau = document.getElementById('tableau');
@@ -174,6 +177,7 @@ function handleDelete(id) {
 // }
 
 
+////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////
 // https://www.youtube.com/watch?v=KnKMGCSPj3Y 
 ///////////////////////////////////////////////////////////////////
