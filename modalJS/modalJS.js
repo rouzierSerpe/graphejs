@@ -1,3 +1,5 @@
+//const { DoughnutController } = require("chart.js");
+
 /* MODAL  */
 const modalBtn = document.querySelectorAll(".modal-btn");
 const modalbg = document.querySelector(".bground");
@@ -120,10 +122,32 @@ btnCloseEnd.forEach((btn) => btn.addEventListener("click", closeModal));
 
 /* FENETRE POPUP SUPPRESSION */
 // https://waytolearnx.com/2019/10/afficher-un-message-de-confirmation-avant-suppression-en-javascript.html
+let rowsIndex,tableau = document.getElementById('tableau');
+
+function selectedRow() {
+  // let rIndex,table = document.getElementById('table');
+  for(let i = 1; i < tableau.rows.length; i++) {
+    tableau.rows[i].onclick = function() {
+      // get the selected row index
+      rowsIndex = this.rowIndex;
+      console.log(rowsIndex);
+
+      // get the data from the selected row to put it in the input text
+      // document.getElementById('fname').value = this.cells[0].innerHTML;
+      // document.getElementById('lname').value = this.cells[1].innerHTML;
+      // document.getElementById('age').value = this.cells[2].innerHTML;
+    };
+  }
+}
+
+
+
 function confirmer(){
   var res = confirm("Êtes-vous sûr de vouloir supprimer?");
+  
   if(res){
       // Mettez ici la logique de suppression
+      tableau.deleteRow(rowsIndex);
   }
 }
 
@@ -133,4 +157,107 @@ function handleDelete(id) {
       const allTodos = todos.filter(todo => todo.id !== id);
       setTotos(allTodos);
     }
+}
+
+
+
+
+// let rowIndex,tableau = document.getElementById('tableau');
+
+// function deleteSelectedRow() {
+//   table.deleteRow(rIndex);
+
+//   // clear input text
+//   document.getElementById('fname').value = '';
+//   document.getElementById('lname').value = '';
+//   document.getElementById('age').value = '';
+// }
+
+
+////////////////////////////////////////////////////////////////////
+// https://www.youtube.com/watch?v=KnKMGCSPj3Y 
+///////////////////////////////////////////////////////////////////
+let rIndex,table = document.getElementById('table');
+
+// check if empty input
+function checkEmptyInput() {
+  let isEmpty = false,
+      fname = document.getElementById('fname').value,
+      lname = document.getElementById('lname').value,
+      age = document.getElementById('age').value;
+
+  if(fname === '') {
+    alert('Le prénom ne peut pas être vide');
+    isEmpty = true;
+  }
+  else if(lname === '') {
+    alert('Le nom ne peut pas être vide');
+    isEmpty = true;
+  }
+  else if(age === '') {
+    alert("L'âge ne peut pas être vide");
+    isEmpty = true;
+  } 
+  return isEmpty;
+}
+
+// add row
+function addHtmlTableRow() {
+  // get the table by id
+  // create a new row and cells
+  // get value from input text
+  // set the value into row cell's
+  if(!checkEmptyInput()) {
+    let newRow = table.insertRow(table.length),
+        cell1 = newRow.insertCell(0),
+        cell2 = newRow.insertCell(1),
+        cell3 = newRow.insertCell(2),
+        fname = document.getElementById('fname').value,
+        lname = document.getElementById('lname').value,
+        age = document.getElementById('age').value;
+
+    cell1.innerHTML = fname;
+    cell2.innerHTML = lname;
+    cell3.innerHTML = age;
+
+    // call the function to set the event to the new row
+    selectedRowToInput();
+  }
+}
+
+// display selected row data into input text
+function selectedRowToInput() {
+  // let rIndex,table = document.getElementById('table');
+  for(let i = 1; i < table.rows.length; i++) {
+    table.rows[i].onclick = function() {
+      // get the selected row index
+      rIndex = this.rowIndex;
+       console.log(rIndex);
+
+      // get the data from the selected row to put it in the input text
+      document.getElementById('fname').value = this.cells[0].innerHTML;
+      document.getElementById('lname').value = this.cells[1].innerHTML;
+      document.getElementById('age').value = this.cells[2].innerHTML;
+    };
+  }
+}
+selectedRowToInput();
+
+function editHtmlTableSelectedRow() {
+  let fname = document.getElementById('fname').value,
+      lname = document.getElementById('lname').value,
+      age = document.getElementById('age').value;
+
+  table.rows[rIndex].cells[0].innerHTML = fname;
+  table.rows[rIndex].cells[1].innerHTML = lname;
+  table.rows[rIndex].cells[2].innerHTML = age;
+}
+
+function removeSelectedRow() {
+  table.deleteRow(rIndex);
+
+  // clear input text
+  document.getElementById('fname').value = '';
+  document.getElementById('lname').value = '';
+  document.getElementById('age').value = '';
 }
