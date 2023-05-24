@@ -16,16 +16,217 @@
     <p id="demo1"></p>
     <p id="demo2"></p>
     <p id="demo3"></p>
+    <p id="demo4"></p>
+    <p id="demo5"></p>
+    <p id="demo6"></p>
 
 <script>
     const points = [40, 100, 1, 5, 25, 10];
+    const date = ['23/05/1987', '23/04/1987', '25/02/2022', '22/05/2023', '02/01/1961', '18/10/1989', '07/11/1962'];
     document.getElementById("demo1").innerHTML = points;  
+    document.getElementById("demo2").innerHTML = date;  
+
 
     points.sort(function(a, b){return a - b});
-    document.getElementById("demo2").innerHTML = points;
+    document.getElementById("demo3").innerHTML = points;
+    document.getElementById("demo4").innerHTML = date;
+
 
     points.sort(function(a, b){return b - a});
-    document.getElementById("demo3").innerHTML = points;
+    document.getElementById("demo5").innerHTML = points;
+    document.getElementById("demo6").innerHTML = date;
+
+//     let MyAppointments = [
+//   {
+//     "with":"Doctor Tauseef",
+//     "designation":"Dentist",  
+//     "reason":"Toothache",  
+//     //"appointment_date": "2022-12-01T06:25:24Z",
+//     "appointment_date": "23/05/1987",
+//   },
+//   {
+//     "with":"Abdullah Abid",
+//     "designation":"Software Engineer",  
+//     "reason":"An Idea for a App",
+//     //"appointment_date": "2021-12-09T06:25:24Z",   
+//     "appointment_date": "23/04/1987", 
+//   },
+//   {
+//     "with":"Muhammad Haris",
+//     "designation":"Painter",  
+//     "reason":"Need to pain the house",
+//     //"appointment_date": "2021-12-05T06:25:24Z", 
+//     "appointment_date": "07/11/1962",    
+//   },  
+// ]
+
+// MyAppointments.sort(function(x, y) {
+//   let firstDate = new Date(x.appointment_date),
+//     SecondDate = new Date(y.appointment_date);
+    
+//   if (firstDate < SecondDate) return -1;
+//   if (firstDate > SecondDate) return 1;
+//   return 0;
+// });
+//console.log(MyAppointments);
+
+
+// let array = [
+//     {id: 1, date: '12/03/2012'}, 
+//     {id: 2, date: '08/03/2012'}];
+
+// array.sort(function(a,b){
+//   // Turn your strings into dates, and then subtract them
+//   // to get a value that is either negative, positive, or zero.
+//   return new Date(b.date) - new Date(a.date);
+// });
+//console.log(array)
+
+
+// const dates = [
+//     new Date('15-05-2023'),
+//     new Date('18-05-2023'),
+//     new Date('12-04-2023'),
+//     new Date('20-05-2023'),
+//     new Date('03-10-2023')
+// ];
+
+// const dateOfBirthday = [
+// '15-05-2023',
+// '18-05-2023',
+// '12-04-2023',
+// '20-05-2023',
+// '03-10-2023'
+// ]
+
+// const dateOfBirthday = [
+//     {dob: '2023-05-15'},
+//     {dob: '2023-05-18'},
+//     {dob: '2023-04-12'},
+//     {dob: '2023-05-20'},
+//     {dob: '2023-10-03'}
+// ]
+// const log = console.log;
+// log('sort by date');
+// log(dateOfBirthday.sort(byDate));
+
+// function byDate(a, b) {
+//     return new Date(a.dob).valueOf() - new Date(b.dob).valueOf();
+// }
+
+
+
+// const newDate = new Date();
+
+// const options = { 
+//   year: 'numeric',
+//   month: 'long',
+//   day: 'numeric'
+// };
+
+// const frenchDates = newDate.toLocaleDateString('fr-FR', options);
+
+// function sortDate() {
+//     const dates = [
+//         new Date('15-05-2023'),
+//         new Date('18-05-2023'),
+//         new Date('12-04-2023'),
+//         new Date('20-05-2023'),
+//         new Date('03-10-2023')
+//     ];
+//     let newDate = 0;
+
+//     // for(j = 0; j < dates.length; j++) {
+//     //     const options = { 
+//     //         year: 'numeric',
+//     //         month: 'long',
+//     //         day: 'numeric'
+//     //     };
+//     //     const frenchDates = j.toLocaleDateString('fr-FR', options);
+//     // }
+//     // console.log([frenchDates]);
+
+
+
+//     for(i = 0; i < dates.length; i++) {
+//         if(newDate < dates.length[i]) {
+//             newDate = dates.length[i];
+//         }
+//     }
+// }
+// console.log(sortDate());
+
+
+
+// Sort the dates in ascending order
+// dates.sort((a, b) => a - b);
+
+// console.log(dates);
+// console.log(frenchDates);
+// console.log(byDate());
+
+
+
+let dates = [
+    '03/03/2014',
+    '01/03/2014',
+    '02/05/2014',
+    '04/03/2011'
+];
+
+// dates.sort(function(a, b){
+//     let aa = a.split('/').reverse().join(),
+//         bb = b.split('/').reverse().join();
+//     return aa < bb ? -1 : (aa > bb ? 1 : 0);
+// });
+
+
+// CODE QUI MARCHE
+// dates.sort(function (a, b) {
+//     // '01/03/2014'.split('/')
+//     // gives ["01", "03", "2014"]
+//     a = a.split('/');
+//     b = b.split('/');
+//     return a[2] - b[2] || a[1] - b[1] || a[0] - b[0];
+// });
+// console.log(dates);
+
+
+
+// CODE QUI MARCHE
+function compareDates(date1, date2) {
+  let day1 = parseInt(date1.split('/')[0]);
+  let month1 = parseInt(date1.split('/')[1]);
+  let year1 = parseInt(date1.split('/')[2]);
+
+  let day2 = parseInt(date2.split('/')[0]);
+  let month2 = parseInt(date2.split('/')[1]);
+  let year2 = parseInt(date2.split('/')[2]);
+
+  // Compare les années
+  if (year1 !== year2) {
+    return year1 - year2;
+  }
+
+  // Compare les mois
+  if (month1 !== month2) {
+    return month1 - month2;
+  }
+
+  // Compare les jours
+  return day1 - day2;
+}
+
+// Trie le tableau de dates
+dates.sort(compareDates);
+
+// Affiche le tableau trié
+for (let i = 0; i < dates.length; i++) {
+  console.log(dates[i]);
+}
+
+
+
 </script>
 </body>
 </html>
